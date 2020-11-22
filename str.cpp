@@ -106,6 +106,14 @@ bool str::equal(const char* st) {
 		return !strcmp(arr, st);
 	return false;
 }
+bool str::to_number(long long& res) {
+	for (size_t i = 0; i < use; i++) 
+		if (!(arr[i] >= 48 && arr[i] <= 57))
+			return 0;
+	res=atoll(arr);
+	return 1;
+}
+
 bool str::equal(str st) {
 	if (arr && st.arr)
 		return !strcmp(arr, st.arr);

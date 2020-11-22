@@ -11,6 +11,6 @@
 
 #define open_bracket symboi == '{' || symboi == '('
 #define close_bracket symboi == '}' || symboi == ')'
-#define not_word  symboi == '#' || symboi == '@' || symboi == '%'|| symboi == '^' || symboi == '?' || symboi == '='|| symboi == '-'|| symboi == '!'|| symboi == '~'|| symboi == '`'|| symboi == ':'|| symboi == ';'|| symboi == ','|| symboi == '.'|| symboi == '|'|| symboi == ' ' || symboi =='\r' || symboi =='\t'|| symboi =='\0'|| symboi == '{'|| symboi == '('|| symboi == '}'|| symboi == ')'
+#define not_word  symboi == '#' || symboi == '@' || symboi == '%'|| symboi == '^' || symboi == '?' || symboi == '='|| symboi == '-'|| symboi == '!'|| symboi == '~'|| symboi == '`'|| symboi == ':'|| symboi == ';'|| symboi == ','|| symboi == '.'|| symboi == '|'|| symboi == ' ' || symboi =='\r' || symboi =='\t'|| symboi =='\0'|| symboi == '{'|| symboi == '('|| symboi == '}'|| symboi == ')'||symboi == '\n'
 #define once_word  symboi == '#' || symboi == '%'|| symboi == '^'|| symboi == '='|| symboi == '-'|| symboi == '!'|| symboi == '~'|| symboi == ':'|| symboi == ';'|| symboi == ','|| symboi == '.'|| symboi == '{'|| symboi == '('|| symboi == '}'|| symboi == ')'
 #endif

@@ -4,7 +4,6 @@ bool pre_process_session = 0;
 char pre_process_add_session = 0;
 
 
-
 struct ppc {
 	str name, agr, mask;
 	ppc(str n,str a,str m) {
@@ -21,10 +20,9 @@ size_t ppc_used = 1;
 ppc* ppca = (ppc*)malloc(ppc_size * sizeof(ppc));
 size_t find(str& name) {
 	if (ppca) {
-		for (size_t i = 0; i < ppc_size; i++)
-			if (ppca[i].name.equal(name)) {
+		for (size_t i = 1; i < ppc_used; i++)
+			if (ppca[i].name.equal(name)) 
 				return i;
-			}
 	}
 	return 0;
 }

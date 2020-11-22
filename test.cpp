@@ -23,7 +23,7 @@ bool first_check_module(error& err,str &s) {
 		else if (s.equal("int")) { type_name_full.add("int");  return 1; }
 		else if (s.equal("double")) { type_name_full.add("double");  return 1; }
 		else if (s.equal("float")) { type_name_full.add("float");  return 1; }
-		else if (s.equal("void")) { type_name_full.add("void");  return 0; }
+		else if (s.equal("void")) { type_name_full.add("void");  return 1; }
 		else { can_check = 0; start = 1; }
 	}
 	else if (type_name_full.equal("unsigned")) {
@@ -76,8 +76,8 @@ bool first_check_module(error& err,str &s) {
 		if (s.equal("*")) {
 			type_name_full.add("*");
 		}
-		else return 0;
-		can_check = 1;
+		can_check = 0;
+		return 0;
 	}
 	else can_check = 0;
 	if (!can_check) {
@@ -94,6 +94,7 @@ bool first_check_module(error& err,str &s) {
 
 
 void vofd(vofd_call) {
+	if (st.equal("\n") || st.equal("\t") || st.equal(" ")) goto end;
 	if (pre_processor_convert_vofd(st, vofd,vofd_send));
 	else{
 		if (st.equal("struct"));
@@ -109,6 +110,7 @@ void vofd(vofd_call) {
 		}
 		else if (st.equal(";")|| st.equal("}")) {
 			if (try_annouce) err.out("incomplete expression");
+			if(need_value)err.out("missing number");
 			type_name_full.clear();
 			start = 1;
 			after_annouce = 0;
@@ -120,8 +122,8 @@ void vofd(vofd_call) {
 		}
 		else if(is_last){ if (st.equal("}") && ((!before_st.equal(";")))) err.out("incomplete command"); }
 		else if (need_value) {
-			if (st.empty()) err.out("missing number");
-			long long r = atoll(st.arr);
+			long long r;
+			if(!st.to_number(r))err.out("missing number");
 			need_value = 0;
 		}
 		else {

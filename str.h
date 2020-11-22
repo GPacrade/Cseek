@@ -5,7 +5,7 @@
 #include "size_t.h"
 
 /// <summary>
-/// i love c++ and c# string style manage :)
+/// i love c++ and java string style :)
 /// </summary>
 struct str {
 	char* arr=nullptr;
@@ -16,6 +16,7 @@ struct str {
 	void add(const char string_s);
 	void add(const char string_s[]);
 	void add(const str);
+	bool to_number(long long&);
 	bool realoc(size_t new_size);
 	void clear();
 	str(void);
